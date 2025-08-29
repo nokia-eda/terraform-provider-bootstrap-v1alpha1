@@ -1,0 +1,131 @@
+app_group:
+  - read:
+      path: /apps/bootstrap.eda.nokia.com
+      method: GET
+
+patch:
+  - update:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name}
+      method: PATCH
+  - update:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name}
+      method: PATCH
+
+resource_history:
+  - read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name}/_revs
+      method: GET
+
+resource_list:
+  - read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1
+      method: GET
+
+resource_topology:
+  - read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name}/_topology
+      method: GET
+
+status:
+  - delete:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name}
+      method: DELETE
+  - delete:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name}
+      method: DELETE
+
+ui_result:
+  - read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/_ui/{pathname}
+      method: GET
+
+com.nokia.eda.bootstrap.v1alpha1.init:
+  - create:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits
+      method: POST
+  - read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name}
+      method: GET
+  - update:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name}
+      method: PUT
+
+com.nokia.eda.bootstrap.v1alpha1.init_list:
+  - read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/inits
+      method: GET
+  - read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits
+      method: GET
+  - delete:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits
+      method: DELETE
+
+com.nokia.eda.bootstrap.v1alpha1.init_deleted_resources:
+  - read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/_deleted
+      method: GET
+
+com.nokia.eda.bootstrap.v1alpha1.management_router:
+  - create:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters
+      method: POST
+  - read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name}
+      method: GET
+  - update:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name}
+      method: PUT
+
+com.nokia.eda.bootstrap.v1alpha1.management_router_list:
+  - read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/managementrouters
+      method: GET
+  - read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters
+      method: GET
+  - delete:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters
+      method: DELETE
+
+com.nokia.eda.bootstrap.v1alpha1.management_router_deleted_resources:
+  - read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/_deleted
+      method: GET
+
+totalPaths: 15
+totalSchemas: 38
+usedSchemas: 13
+unusedSchemas: 25
+unusedSchemaList:
+  - AppGroupVersion
+  - ErrorIndex
+  - ErrorItem
+  - ErrorResponse
+  - K8SPatchOp
+  - OverlayState
+  - Resource
+  - ResourceHistoryEntry
+  - StatusDetails
+  - TopoAttrMetadata
+  - TopoElemMetadata
+  - TopoLinkEndpoint
+  - TopoNodeGrouping
+  - TopoOverlayEndpoint
+  - TopoOverlayEndpointState
+  - TopoOverlayLink
+  - TopoOverlayLinkState
+  - TopoOverlayNode
+  - TopoOverlayNodeState
+  - TopoSchema
+  - Topology
+  - com.nokia.eda.bootstrap.v1alpha1.Init_DeletedResourceEntry
+  - com.nokia.eda.bootstrap.v1alpha1.Init_metadata
+  - com.nokia.eda.bootstrap.v1alpha1.ManagementRouter_DeletedResourceEntry
+  - com.nokia.eda.bootstrap.v1alpha1.ManagementRouter_metadata

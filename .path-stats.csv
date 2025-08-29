@@ -1,0 +1,26 @@
+Path,Method,Schema,Model Name,Supported,Datasource,Resource
+/apps/bootstrap.eda.nokia.com,GET,AppGroup,app_group,true,true,false
+/apps/bootstrap.eda.nokia.com/v1alpha1,GET,ResourceList,resource_list,true,true,false
+/apps/bootstrap.eda.nokia.com/v1alpha1/_ui/{pathname},GET,UIResult,,false,false,false
+/apps/bootstrap.eda.nokia.com/v1alpha1/inits,GET,com.nokia.eda.bootstrap.v1alpha1.InitList,,false,false,false
+/apps/bootstrap.eda.nokia.com/v1alpha1/managementrouters,GET,com.nokia.eda.bootstrap.v1alpha1.ManagementRouterList,,false,false,false
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits,DELETE,com.nokia.eda.bootstrap.v1alpha1.InitList,,false,false,false
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits,GET,com.nokia.eda.bootstrap.v1alpha1.InitList,init_list,true,true,false
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits,POST,com.nokia.eda.bootstrap.v1alpha1.Init,init,true,false,true
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/_deleted,GET,com.nokia.eda.bootstrap.v1alpha1.Init_DeletedResources,,false,false,false
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name},DELETE,Status,init,true,false,true
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name},GET,com.nokia.eda.bootstrap.v1alpha1.Init,init,true,true,true
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name},PATCH,Patch,,false,false,false
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name},PUT,com.nokia.eda.bootstrap.v1alpha1.Init,init,true,false,true
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name}/_revs,GET,ResourceHistory,,false,false,false
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name}/_topology,GET,ResourceTopology,,false,false,false
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters,DELETE,com.nokia.eda.bootstrap.v1alpha1.ManagementRouterList,,false,false,false
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters,GET,com.nokia.eda.bootstrap.v1alpha1.ManagementRouterList,management_router_list,true,true,false
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters,POST,com.nokia.eda.bootstrap.v1alpha1.ManagementRouter,management_router,true,false,true
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/_deleted,GET,com.nokia.eda.bootstrap.v1alpha1.ManagementRouter_DeletedResources,,false,false,false
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name},DELETE,Status,management_router,true,false,true
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name},GET,com.nokia.eda.bootstrap.v1alpha1.ManagementRouter,management_router,true,true,true
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name},PATCH,Patch,,false,false,false
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name},PUT,com.nokia.eda.bootstrap.v1alpha1.ManagementRouter,management_router,true,false,true
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name}/_revs,GET,ResourceHistory,,false,false,false
+/apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name}/_topology,GET,ResourceTopology,,false,false,false

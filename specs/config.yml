@@ -1,0 +1,62 @@
+provider:
+  name: bootstrap
+
+data_sources:
+  app_group:
+    read:
+      path: /apps/bootstrap.eda.nokia.com
+      method: GET
+
+  init:
+    read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name}
+      method: GET
+
+  init_list:
+    read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits
+      method: GET
+
+  management_router:
+    read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name}
+      method: GET
+
+  management_router_list:
+    read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters
+      method: GET
+
+  resource_list:
+    read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1
+      method: GET
+
+resources:
+  init:
+    create:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits
+      method: POST
+    read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name}
+      method: GET
+    update:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name}
+      method: PUT
+    delete:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name}
+      method: DELETE
+
+  management_router:
+    create:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters
+      method: POST
+    read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name}
+      method: GET
+    update:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name}
+      method: PUT
+    delete:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name}
+      method: DELETE
