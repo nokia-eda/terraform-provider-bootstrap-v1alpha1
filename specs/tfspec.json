@@ -167,14 +167,14 @@
                                                 }
                                             },
                                             {
-                                                "name": "ipv4dhcp",
+                                                "name": "ipv4_dhcp",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enable IPv4 DHCP client."
                                                 }
                                             },
                                             {
-                                                "name": "ipv6dhcp",
+                                                "name": "ipv6_dhcp",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enable IPv6 DHCP client."
@@ -252,7 +252,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -352,14 +352,14 @@
                                                                 }
                                                             },
                                                             {
-                                                                "name": "ipv4dhcp",
+                                                                "name": "ipv4_dhcp",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enable IPv4 DHCP client."
                                                                 }
                                                             },
                                                             {
-                                                                "name": "ipv6dhcp",
+                                                                "name": "ipv6_dhcp",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enable IPv6 DHCP client."
@@ -561,7 +561,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -901,14 +901,14 @@
                                                 }
                                             },
                                             {
-                                                "name": "ipv4dhcp",
+                                                "name": "ipv4_dhcp",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enable IPv4 DHCP client."
                                                 }
                                             },
                                             {
-                                                "name": "ipv6dhcp",
+                                                "name": "ipv6_dhcp",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enable IPv6 DHCP client."

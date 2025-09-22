@@ -80,12 +80,12 @@ func InitListDataSourceSchema(ctx context.Context) schema.Schema {
 											Description:         "Set the management interface IP MTU.",
 											MarkdownDescription: "Set the management interface IP MTU.",
 										},
-										"ipv4dhcp": schema.BoolAttribute{
+										"ipv4_dhcp": schema.BoolAttribute{
 											Optional:            true,
 											Description:         "Enable IPv4 DHCP client.",
 											MarkdownDescription: "Enable IPv4 DHCP client.",
 										},
-										"ipv6dhcp": schema.BoolAttribute{
+										"ipv6_dhcp": schema.BoolAttribute{
 											Optional:            true,
 											Description:         "Enable IPv6 DHCP client.",
 											MarkdownDescription: "Enable IPv6 DHCP client.",
@@ -163,7 +163,7 @@ func InitListDataSourceSchema(ctx context.Context) schema.Schema {
 			"kind": schema.StringAttribute{
 				Computed: true,
 			},
-			"labelselector": schema.StringAttribute{
+			"label_selector": schema.StringAttribute{
 				Optional:            true,
 				Computed:            true,
 				Description:         "a label selector string to filter the results based on CR labels",
@@ -184,7 +184,7 @@ type InitListModel struct {
 	Filter        types.String `tfsdk:"filter"`
 	Items         types.List   `tfsdk:"items"`
 	Kind          types.String `tfsdk:"kind"`
-	Labelselector types.String `tfsdk:"labelselector"`
+	LabelSelector types.String `tfsdk:"label_selector"`
 	Namespace     types.String `tfsdk:"namespace"`
 }
 
@@ -1898,40 +1898,40 @@ func (t MgmtType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue)
 			fmt.Sprintf(`ip_mtu expected to be basetypes.Int64Value, was: %T`, ipMtuAttribute))
 	}
 
-	ipv4dhcpAttribute, ok := attributes["ipv4dhcp"]
+	ipv4DhcpAttribute, ok := attributes["ipv4_dhcp"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`ipv4dhcp is missing from object`)
+			`ipv4_dhcp is missing from object`)
 
 		return nil, diags
 	}
 
-	ipv4dhcpVal, ok := ipv4dhcpAttribute.(basetypes.BoolValue)
+	ipv4DhcpVal, ok := ipv4DhcpAttribute.(basetypes.BoolValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`ipv4dhcp expected to be basetypes.BoolValue, was: %T`, ipv4dhcpAttribute))
+			fmt.Sprintf(`ipv4_dhcp expected to be basetypes.BoolValue, was: %T`, ipv4DhcpAttribute))
 	}
 
-	ipv6dhcpAttribute, ok := attributes["ipv6dhcp"]
+	ipv6DhcpAttribute, ok := attributes["ipv6_dhcp"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`ipv6dhcp is missing from object`)
+			`ipv6_dhcp is missing from object`)
 
 		return nil, diags
 	}
 
-	ipv6dhcpVal, ok := ipv6dhcpAttribute.(basetypes.BoolValue)
+	ipv6DhcpVal, ok := ipv6DhcpAttribute.(basetypes.BoolValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`ipv6dhcp expected to be basetypes.BoolValue, was: %T`, ipv6dhcpAttribute))
+			fmt.Sprintf(`ipv6_dhcp expected to be basetypes.BoolValue, was: %T`, ipv6DhcpAttribute))
 	}
 
 	staticRoutesAttribute, ok := attributes["static_routes"]
@@ -1958,8 +1958,8 @@ func (t MgmtType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue)
 
 	return MgmtValue{
 		IpMtu:        ipMtuVal,
-		Ipv4dhcp:     ipv4dhcpVal,
-		Ipv6dhcp:     ipv6dhcpVal,
+		Ipv4Dhcp:     ipv4DhcpVal,
+		Ipv6Dhcp:     ipv6DhcpVal,
 		StaticRoutes: staticRoutesVal,
 		state:        attr.ValueStateKnown,
 	}, diags
@@ -2046,40 +2046,40 @@ func NewMgmtValue(attributeTypes map[string]attr.Type, attributes map[string]att
 			fmt.Sprintf(`ip_mtu expected to be basetypes.Int64Value, was: %T`, ipMtuAttribute))
 	}
 
-	ipv4dhcpAttribute, ok := attributes["ipv4dhcp"]
+	ipv4DhcpAttribute, ok := attributes["ipv4_dhcp"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`ipv4dhcp is missing from object`)
+			`ipv4_dhcp is missing from object`)
 
 		return NewMgmtValueUnknown(), diags
 	}
 
-	ipv4dhcpVal, ok := ipv4dhcpAttribute.(basetypes.BoolValue)
+	ipv4DhcpVal, ok := ipv4DhcpAttribute.(basetypes.BoolValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`ipv4dhcp expected to be basetypes.BoolValue, was: %T`, ipv4dhcpAttribute))
+			fmt.Sprintf(`ipv4_dhcp expected to be basetypes.BoolValue, was: %T`, ipv4DhcpAttribute))
 	}
 
-	ipv6dhcpAttribute, ok := attributes["ipv6dhcp"]
+	ipv6DhcpAttribute, ok := attributes["ipv6_dhcp"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`ipv6dhcp is missing from object`)
+			`ipv6_dhcp is missing from object`)
 
 		return NewMgmtValueUnknown(), diags
 	}
 
-	ipv6dhcpVal, ok := ipv6dhcpAttribute.(basetypes.BoolValue)
+	ipv6DhcpVal, ok := ipv6DhcpAttribute.(basetypes.BoolValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`ipv6dhcp expected to be basetypes.BoolValue, was: %T`, ipv6dhcpAttribute))
+			fmt.Sprintf(`ipv6_dhcp expected to be basetypes.BoolValue, was: %T`, ipv6DhcpAttribute))
 	}
 
 	staticRoutesAttribute, ok := attributes["static_routes"]
@@ -2106,8 +2106,8 @@ func NewMgmtValue(attributeTypes map[string]attr.Type, attributes map[string]att
 
 	return MgmtValue{
 		IpMtu:        ipMtuVal,
-		Ipv4dhcp:     ipv4dhcpVal,
-		Ipv6dhcp:     ipv6dhcpVal,
+		Ipv4Dhcp:     ipv4DhcpVal,
+		Ipv6Dhcp:     ipv6DhcpVal,
 		StaticRoutes: staticRoutesVal,
 		state:        attr.ValueStateKnown,
 	}, diags
@@ -2182,8 +2182,8 @@ var _ basetypes.ObjectValuable = MgmtValue{}
 
 type MgmtValue struct {
 	IpMtu        basetypes.Int64Value `tfsdk:"ip_mtu"`
-	Ipv4dhcp     basetypes.BoolValue  `tfsdk:"ipv4dhcp"`
-	Ipv6dhcp     basetypes.BoolValue  `tfsdk:"ipv6dhcp"`
+	Ipv4Dhcp     basetypes.BoolValue  `tfsdk:"ipv4_dhcp"`
+	Ipv6Dhcp     basetypes.BoolValue  `tfsdk:"ipv6_dhcp"`
 	StaticRoutes basetypes.ListValue  `tfsdk:"static_routes"`
 	state        attr.ValueState
 }
@@ -2195,8 +2195,8 @@ func (v MgmtValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) 
 	var err error
 
 	attrTypes["ip_mtu"] = basetypes.Int64Type{}.TerraformType(ctx)
-	attrTypes["ipv4dhcp"] = basetypes.BoolType{}.TerraformType(ctx)
-	attrTypes["ipv6dhcp"] = basetypes.BoolType{}.TerraformType(ctx)
+	attrTypes["ipv4_dhcp"] = basetypes.BoolType{}.TerraformType(ctx)
+	attrTypes["ipv6_dhcp"] = basetypes.BoolType{}.TerraformType(ctx)
 	attrTypes["static_routes"] = basetypes.ListType{
 		ElemType: StaticRoutesValue{}.Type(ctx),
 	}.TerraformType(ctx)
@@ -2215,21 +2215,21 @@ func (v MgmtValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) 
 
 		vals["ip_mtu"] = val
 
-		val, err = v.Ipv4dhcp.ToTerraformValue(ctx)
+		val, err = v.Ipv4Dhcp.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["ipv4dhcp"] = val
+		vals["ipv4_dhcp"] = val
 
-		val, err = v.Ipv6dhcp.ToTerraformValue(ctx)
+		val, err = v.Ipv6Dhcp.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["ipv6dhcp"] = val
+		vals["ipv6_dhcp"] = val
 
 		val, err = v.StaticRoutes.ToTerraformValue(ctx)
 
@@ -2298,9 +2298,9 @@ func (v MgmtValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 	}
 
 	attributeTypes := map[string]attr.Type{
-		"ip_mtu":   basetypes.Int64Type{},
-		"ipv4dhcp": basetypes.BoolType{},
-		"ipv6dhcp": basetypes.BoolType{},
+		"ip_mtu":    basetypes.Int64Type{},
+		"ipv4_dhcp": basetypes.BoolType{},
+		"ipv6_dhcp": basetypes.BoolType{},
 		"static_routes": basetypes.ListType{
 			ElemType: StaticRoutesValue{}.Type(ctx),
 		},
@@ -2318,8 +2318,8 @@ func (v MgmtValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 		attributeTypes,
 		map[string]attr.Value{
 			"ip_mtu":        v.IpMtu,
-			"ipv4dhcp":      v.Ipv4dhcp,
-			"ipv6dhcp":      v.Ipv6dhcp,
+			"ipv4_dhcp":     v.Ipv4Dhcp,
+			"ipv6_dhcp":     v.Ipv6Dhcp,
 			"static_routes": staticRoutes,
 		})
 
@@ -2345,11 +2345,11 @@ func (v MgmtValue) Equal(o attr.Value) bool {
 		return false
 	}
 
-	if !v.Ipv4dhcp.Equal(other.Ipv4dhcp) {
+	if !v.Ipv4Dhcp.Equal(other.Ipv4Dhcp) {
 		return false
 	}
 
-	if !v.Ipv6dhcp.Equal(other.Ipv6dhcp) {
+	if !v.Ipv6Dhcp.Equal(other.Ipv6Dhcp) {
 		return false
 	}
 
@@ -2370,9 +2370,9 @@ func (v MgmtValue) Type(ctx context.Context) attr.Type {
 
 func (v MgmtValue) AttributeTypes(ctx context.Context) map[string]attr.Type {
 	return map[string]attr.Type{
-		"ip_mtu":   basetypes.Int64Type{},
-		"ipv4dhcp": basetypes.BoolType{},
-		"ipv6dhcp": basetypes.BoolType{},
+		"ip_mtu":    basetypes.Int64Type{},
+		"ipv4_dhcp": basetypes.BoolType{},
+		"ipv6_dhcp": basetypes.BoolType{},
 		"static_routes": basetypes.ListType{
 			ElemType: StaticRoutesValue{}.Type(ctx),
 		},

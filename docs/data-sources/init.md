@@ -50,8 +50,8 @@ If not provided initialization is performed for all nodes.
 Optional:
 
 - `ip_mtu` (Number) Set the management interface IP MTU.
-- `ipv4dhcp` (Boolean) Enable IPv4 DHCP client.
-- `ipv6dhcp` (Boolean) Enable IPv6 DHCP client.
+- `ipv4_dhcp` (Boolean) Enable IPv4 DHCP client.
+- `ipv6_dhcp` (Boolean) Enable IPv6 DHCP client.
 - `static_routes` (Attributes List) Optional list of static routes to add to the management network instance as part of the initial configuration. (see [below for nested schema](#nestedatt--spec--mgmt--static_routes))
 
 <a id="nestedatt--spec--mgmt--static_routes"></a>

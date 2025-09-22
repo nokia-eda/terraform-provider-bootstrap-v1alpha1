@@ -23,7 +23,7 @@ description: |-
 
 - `fields` (String) a comma-separated list of resource fields to fetch/return.  If unspecified, all fields are fetched.  If empty, only key-fields are fetched.
 - `filter` (String) an EQL "where" expression that will be used to filter the set of resources returned.
-- `labelselector` (String) a label selector string to filter the results based on CR labels
+- `label_selector` (String) a label selector string to filter the results based on CR labels
 
 ### Read-Only
 
@@ -63,8 +63,8 @@ If not provided initialization is performed for all nodes.
 Optional:
 
 - `ip_mtu` (Number) Set the management interface IP MTU.
-- `ipv4dhcp` (Boolean) Enable IPv4 DHCP client.
-- `ipv6dhcp` (Boolean) Enable IPv6 DHCP client.
+- `ipv4_dhcp` (Boolean) Enable IPv4 DHCP client.
+- `ipv6_dhcp` (Boolean) Enable IPv6 DHCP client.
 - `static_routes` (Attributes List) Optional list of static routes to add to the management network instance as part of the initial configuration. (see [below for nested schema](#nestedatt--items--spec--mgmt--static_routes))
 
 <a id="nestedatt--items--spec--mgmt--static_routes"></a>
