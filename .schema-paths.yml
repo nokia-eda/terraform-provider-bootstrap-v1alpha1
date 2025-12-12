@@ -3,6 +3,22 @@ app_group:
       path: /apps/bootstrap.eda.nokia.com
       method: GET
 
+intent_targets:
+  - read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name}/_targets
+      method: GET
+  - read:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name}/_targets
+      method: GET
+
+k8_s_topology_request:
+  - create:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name}/_topology
+      method: POST
+  - create:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name}/_topology
+      method: POST
+
 patch:
   - update:
       path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name}
@@ -99,33 +115,54 @@ com.nokia.eda.bootstrap.v1alpha1.management_router_deleted_resources:
       path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/_deleted
       method: GET
 
-totalPaths: 15
-totalSchemas: 38
-usedSchemas: 13
-unusedSchemas: 25
+totalPaths: 17
+totalSchemas: 61
+usedSchemas: 15
+unusedSchemas: 46
 unusedSchemaList:
   - AppGroupVersion
   - ErrorIndex
   - ErrorItem
   - ErrorResponse
+  - IntentTarget
   - K8SPatchOp
   - OverlayState
   - Resource
   - ResourceHistoryEntry
   - StatusDetails
   - TopoAttrMetadata
+  - TopoAttribute
+  - TopoBoolExpression
+  - TopoBoolLiteral
   - TopoElemMetadata
-  - TopoLinkEndpoint
+  - TopoEndpointBoolExpression
+  - TopoField
+  - TopoFixedBoolExpression
+  - TopoLabelSelector
+  - TopoLiteralStatusOrBadge
+  - TopoLiteralValue
+  - TopoLogicalExpression
   - TopoNodeGrouping
   - TopoOverlayEndpoint
   - TopoOverlayEndpointState
   - TopoOverlayLink
+  - TopoOverlayLinkGroup
+  - TopoOverlayLinkGroupEndpoint
   - TopoOverlayLinkState
   - TopoOverlayNode
+  - TopoOverlayNodeOrGroup
   - TopoOverlayNodeState
+  - TopoOverlayValue
   - TopoSchema
+  - TopoStateFilter
+  - TopoValue
+  - TopoValueExpression
   - Topology
   - com.nokia.eda.bootstrap.v1alpha1.Init_DeletedResourceEntry
+  - com.nokia.eda.bootstrap.v1alpha1.Init_alarms
+  - com.nokia.eda.bootstrap.v1alpha1.Init_deviations
   - com.nokia.eda.bootstrap.v1alpha1.Init_metadata
   - com.nokia.eda.bootstrap.v1alpha1.ManagementRouter_DeletedResourceEntry
+  - com.nokia.eda.bootstrap.v1alpha1.ManagementRouter_alarms
+  - com.nokia.eda.bootstrap.v1alpha1.ManagementRouter_deviations
   - com.nokia.eda.bootstrap.v1alpha1.ManagementRouter_metadata

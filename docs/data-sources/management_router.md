@@ -27,7 +27,9 @@ description: |-
 
 ### Read-Only
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--deviations))
 - `kind` (String)
 - `metadata` (Attributes) (see [below for nested schema](#nestedatt--metadata))
 - `status` (Attributes) ManagementRouterStatus defines the observed state of ManagementRouter (see [below for nested schema](#nestedatt--status))
@@ -39,6 +41,35 @@ Optional:
 
 - `node_selector` (List of String) Selects TopoNodes on which to configure the management VRF. When left empty, all TopoNodes are selected.
 - `nodes` (List of String) List of TopoNodes on which to configure the management VRF. When left empty, all TopoNodes are selected.
+- `static_routes` (Attributes List) Optional list of static routes to add to the management network instance as part of the initial configuration. (see [below for nested schema](#nestedatt--spec--static_routes))
+
+<a id="nestedatt--spec--static_routes"></a>
+### Nested Schema for `spec.static_routes`
+
+Optional:
+
+- `next_hop` (String) Static route next hop.
+- `prefix` (String) Static route prefix.
+
+
+
+<a id="nestedatt--alarms"></a>
+### Nested Schema for `alarms`
+
+Read-Only:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--deviations"></a>
+### Nested Schema for `deviations`
+
+Read-Only:
+
+- `count` (Number)
 
 
 <a id="nestedatt--metadata"></a>
