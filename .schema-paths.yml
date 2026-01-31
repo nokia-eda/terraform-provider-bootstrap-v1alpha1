@@ -19,14 +19,6 @@ k8_s_topology_request:
       path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name}/_topology
       method: POST
 
-patch:
-  - update:
-      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name}
-      method: PATCH
-  - update:
-      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name}
-      method: PATCH
-
 resource_history:
   - read:
       path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name}/_revs
@@ -71,6 +63,9 @@ com.nokia.eda.bootstrap.v1alpha1.init:
   - update:
       path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name}
       method: PUT
+  - update:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/inits/{name}
+      method: PATCH
 
 com.nokia.eda.bootstrap.v1alpha1.init_list:
   - read:
@@ -98,6 +93,9 @@ com.nokia.eda.bootstrap.v1alpha1.management_router:
   - update:
       path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name}
       method: PUT
+  - update:
+      path: /apps/bootstrap.eda.nokia.com/v1alpha1/namespaces/{namespace}/managementrouters/{name}
+      method: PATCH
 
 com.nokia.eda.bootstrap.v1alpha1.management_router_list:
   - read:
@@ -117,8 +115,8 @@ com.nokia.eda.bootstrap.v1alpha1.management_router_deleted_resources:
 
 totalPaths: 17
 totalSchemas: 61
-usedSchemas: 15
-unusedSchemas: 46
+usedSchemas: 14
+unusedSchemas: 47
 unusedSchemaList:
   - AppGroupVersion
   - ErrorIndex
@@ -127,6 +125,7 @@ unusedSchemaList:
   - IntentTarget
   - K8SPatchOp
   - OverlayState
+  - Patch
   - Resource
   - ResourceHistoryEntry
   - StatusDetails
